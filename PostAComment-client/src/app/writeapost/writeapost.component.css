@@ -1,0 +1,71 @@
+div.rounded.card {
+  border-radius: 22px !important;
+}
+
+h2#main-head.badge.badge-pill.badge-primary {
+
+  margin-top: 1%;
+  font-size: 2em;
+  background-color: steelblue;
+  color: whitesmoke;
+  margin-left: 20%;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: center;
+
+}
+
+div#wpa-body.container.wrapper {
+  margin-top: 2%;
+  padding: 2%;
+}
+
+input#postedby {
+  width: 60%;
+  border-color: steelblue;
+}
+
+input#postedby:focus {
+  box-shadow: unset;
+}
+
+input#postedby:focus {
+  outline-color: whitesmoke !important;
+}
+
+tag-input.form-control {
+  /*border: steelblue!important;*/
+}
+
+h3.card-title {
+  color: steelblue;
+}
+
+input#title {
+  width: 50%;
+  border-color: steelblue;
+}
+
+input#title:focus {
+  box-shadow: unset;
+}
+
+textarea.form-control {
+  border-color: steelblue;
+}
+
+textarea.form-control {
+  box-shadow: unset;
+}
+
+input.btn.btn-success.active {
+  border-color: steelblue !important;
+  background-color: whitesmoke;
+  color: steelblue;
+  box-shadow: unset !important;
+}
+
+input.btn.btn-success.active:hover {
+  background-color: steelblue;
+  color: whitesmoke;
+}

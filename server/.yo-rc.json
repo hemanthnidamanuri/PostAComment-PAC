@@ -1,0 +1,17 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "PostAComment",
+    "username": "hemanthnidamanuri",
+    "userEmail": "hemanthnidamanuri89@gmail.com",
+    "stack": "server",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "hemanthnidamanuri",
+    "client": "",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "babel",
+    "secure": false,
+    "testsSeparated": true,
+    "boilerplate": true
+  }
+}

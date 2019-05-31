@@ -1,0 +1,96 @@
+<div class="container">
+  <ng-flash-message></ng-flash-message>
+  <div class="rounded card">
+
+    <div class="card-header rounded">
+      <span class="fa fa-sign-in"></span>
+    </div>
+
+    <div class="card-body">
+      <form [formGroup]="saveRegisterForm" (ngSubmit)="validRegisterForm(saveRegisterForm.value)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="">FirstName</label>
+            <input type="text" formControlName="firstname" id="fname" class="form-control"
+                   [ngClass]="{'is-invalid': submission && rpa.firstname.errors}" placeholder=""
+                   aria-describedby="helpId">
+            <div *ngIf="submission && rpa.firstname.errors" class="invalid-feedback">
+              <div *ngIf="rpa.firstname.hasError('hasspace')">enter your firstname.</div>
+              <div *ngIf="rpa.firstname.errors.minlength">Minimum - 4 characters</div>
+              <div *ngIf="rpa.firstname.errors.maxlength">Maxium - 25 characters</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="">LastName</label>
+            <input type="text" formControlName="lastname" id="lname" class="form-control"
+                   [ngClass]="{'is-invalid': submission && rpa.lastname.errors}" placeholder=""
+                   aria-describedby="helpId">
+            <div *ngIf="submission && rpa.lastname.errors" class="invalid-feedback">
+              <div *ngIf="rpa.lastname.hasError('hasspace')">enter your lastname.</div>
+              <div *ngIf="rpa.lastname.errors.minlength">Minimum - 4 characters</div>
+              <div *ngIf="rpa.lastname.errors.maxlength">Maxium - 25 characters</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="">Email</label>
+            <input type="email" formControlName="email" class="form-control" id="email"
+                   [ngClass]="{'is-invalid': submission && rpa.email.errors}" aria-describedby="emailHelpId"
+                   placeholder="">
+            <div *ngIf="submission && rpa.email.errors" class="invalid-feedback">
+              <div *ngIf="rpa.email.hasError('hasspace')">enter your email.</div>
+              <div *ngIf="rpa.email.errors">invalid email address.</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="">Password</label>
+            <input type="password" formControlName="password" class="form-control"
+                   [ngClass]="{'is-invalid': submission && rpa.password.errors}" name="" id="pwd" placeholder="">
+            <div *ngIf="submission && rpa.password.errors" class="invalid-feedback">
+              <div *ngIf="rpa.password.hasError('hasspace')">Enter Your Password.</div>
+              <div *ngIf="rpa.password.errors">Minimum eight characters, at least one uppercase,one lowercase, one digit
+                and one special character.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="">ConfirmPassword</label>
+            <input type="password" formControlName="cpwd" class="form-control"
+                   [ngClass]="{'is-invalid': submission && rpa.cpwd.errors}" name="" id="cpwd" placeholder="">
+            <div *ngIf="submission && rpa.cpwd.errors" class="invalid-feedback">
+              <div *ngIf="rpa.cpwd.hasError('hasspace')">Password required.</div>
+              <div *ngIf="rpa.cpwd.errors.matchpwds">Password doest not match.</div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">SignUp</button>
+
+        <div class="mt-4">
+          <div class="d-flex justify-content-center links">
+            already have an account? <a [routerLink]="['/login']" class="ml-2">LogIn</a>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-footer rounded">
+      <div class="row">
+        <ul class="list-unstyled list-inline social text-center">
+          <li class="list-inline-item"><a><i class="fa fa-facebook"></i></a></li>
+          <li class="list-inline-item"><a><i class="fa fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a><i class="fa fa-instagram"></i></a></li>
+          <li class="list-inline-item"><a><i class="fa fa-google-plus"></i></a></li>
+          <li class="list-inline-item"><a><i class="fa fa-envelope"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

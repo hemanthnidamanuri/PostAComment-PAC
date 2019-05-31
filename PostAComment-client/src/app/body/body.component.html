@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-none d-md-block  sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+
+          <li class="nav-item">
+            <a class="nav-item" href="#">
+              <span data-feather="home"></span>
+              Search<span class="sr-only">(current)</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">
+              <span data-feather="file"></span>
+              TitleSearch
+            </a>
+            <input type="text" name="title" id="title" class="rounded-pill" [(ngModel)]="searchFilter.title"
+                   (input)="searchValue('title')" placeholder=" Title name"/>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">
+              <span data-feather="file"></span>
+              AuthorSearch
+            </a>
+            <input type="text" name="author" id="author" class="rounded-pill" [(ngModel)]="searchFilter.postedby"
+                   (input)="searchValue('postedby')" placeholder=" Author name"/>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link">
+              <span data-feather="file"></span>
+              SearchByDate
+            </a>
+            <input type="text" name="title" id="date" class="rounded-pill" [(ngModel)]="searchFilter.postedon"
+                   (input)="searchValue('postedon')" placeholder=" Apr 31,2016"/>
+          </li>
+
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+  <div class="container">
+    <div class="container-fluid">
+      <h4 class="display-4">Posts</h4>
+    </div>
+    <div class="container" id="post_display">
+      <div class="container-fluid">
+        <button type="button" class="btn btn-outline-primary" [routerLink]="['/writeapost']">Create a new post</button>
+      </div>
+      <div class="clearfix"></div>
+      <div class="rounded-pill">
+        <!--      Displaying all Post titles With Pagination -->
+        <ul class="list-group">
+          <li *ngFor="let i of postVault | paginate: {
+               itemsPerPage: itemsperpage, currentPage: p,totalItems:total}"
+              [routerLink]="['/viewpost',i.id]" (click)="increment(i.id)"
+              class="list-group-item">{{ i.title }} {{i.user.firstname}}{{i.user.lastname}} {{i.postedon | date}}</li>
+        </ul>
+        <pagination-controls (pageChange)="getALL($event)" class="pagination_my"></pagination-controls>
+      </div>
+    </div>
+  </div>
+</main>
+

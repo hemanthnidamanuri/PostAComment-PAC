@@ -1,0 +1,43 @@
+nav.navbar.navbar-expand-sm.navbar-light.bg-light{
+  background-color: steelblue!important;
+}
+a{
+  color: whitesmoke!important;
+}
+
+button.btn.btn-outline-success.my-2.my-sm-0{
+  color: whitesmoke;
+  border-color: whitesmoke;
+}
+
+button.btn.btn-outline-success.my-2.my-sm-0:hover{
+  background-color: whitesmoke;
+  color: steelblue;
+}
+
+a#logout.nav-link{
+  margin-right: 100%;
+}
+input.form-control{
+  padding-right: 15rem!important;
+  margin-right: 5rem!important;
+}
+button#triggerId.btn.btn-primary.dropdown-toggle{
+  background-color: steelblue!important;
+  color: whitesmoke!important;
+  border: none!important;
+  margin-right: 4rem;
+}
+button#triggerId.btn.btn-primary.dropdown-toggle:focus{
+  box-shadow: none!important;
+}
+div.dropdown-menu{
+  background-color: steelblue!important;
+}
+a.dropdown-item{
+  color: whitesmoke!important;
+}
+a.dropdown-item:hover{
+  background-color: whitesmoke!important;
+  color: steelblue!important;
+}

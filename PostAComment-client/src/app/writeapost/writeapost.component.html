@@ -1,0 +1,56 @@
+<div class="jumbotron">
+  <div class="leftcolm">
+    <div class="rounded card">
+      <ng-flash-message></ng-flash-message>
+      <div class="card-body">
+
+        <form [formGroup]="savePostForm" (ngSubmit)="ValidForm(savePostForm.value)">
+
+          <div class="container">
+            <h2 id="main-head" class="badge badge-pill badge-primary">Write a Post</h2>
+          </div>
+
+          <div class="container wrapper" id="wpa-body">
+            <div class="form-group">
+              <h3 class="card-title">Title</h3>
+              <!--          Reading the post titla -->
+              <input type="text" id="title" formControlName="title" class="form-control"
+                     [ngClass]="{'is-invalid': submission && wpa.title.errors}" placeholder="Title"/>
+              <div *ngIf="submission && wpa.title.errors" class="invalid-feedback">
+                <!--              <div *ngIf="wpa.title.errors.required">enter title</div>-->
+                <div *ngIf="wpa.title.hasError('hasspace')">enter title.</div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-6">
+                  <h3 class="card-title">Tags</h3>
+                  <tag-input formControlName="tag" theme='minimal' class="form-control"></tag-input>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <h3 class="card-title">Content</h3>
+              <!--        reading  post content -->
+              <textarea id="" cols="100" rows="10" formControlName="content" class="form-control"
+                        [ngClass]="{'is-invalid': submission && wpa.content.errors}" placeholder="Content"></textarea>
+              <div *ngIf="submission && wpa.content.errors" class="invalid-feedback">
+                <div *ngIf="wpa.content.hasError('hasspace')">enter content.</div>
+                <div *ngIf="wpa.content.errors.maxlength">Maximum - 1000 characters only.</div>
+              </div>
+            </div>
+
+            <div>
+              <!--          saving post -->
+              <input class="btn btn-success active" role="button" type="submit"/>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

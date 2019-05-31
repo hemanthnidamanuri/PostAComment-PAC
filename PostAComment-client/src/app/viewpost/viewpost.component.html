@@ -1,0 +1,91 @@
+<!--posting the title , content -->
+<div class="jumbotron">
+  <div class="leftcolm">
+    <div class="rounded card" *ngFor="let list of listvault">
+      <div class="card-body" *ngIf="listvault">
+        <div class="card-title">
+          <div>
+            <blockquote class="blockquote">
+              <p class="mb-0">{{list.title}}</p>
+              <footer class="blockquote-footer">Author : <cite title="Source Title">{{name}}</cite></footer>
+            </blockquote>
+          </div>
+        </div>
+        <div class="container" id="text-cont">
+          <div class="card-text">
+             <p>{{list.content}}</p>
+          </div>
+        </div>
+        <br>
+        <div class="likebutton">
+          <div class="container">
+            <div class="row">
+              <div class="col-1">
+                  <!--   saving the likes      -->
+                  <button class="btn" type="button"><i class="fa fa-thumbs-up fa-lg" aria-hidden="true" (click)="submitLikes()"></i></button>
+                  <!--     displaying likes    -->
+                  <span class="num">{{finallikes}}</span>
+              </div>
+              <div class="col-1">
+
+                  <label><i class="fa fa-eye" aria-hidden="true"></i></label>
+                  <span class="num eye">{{list.views}}</span>
+
+              </div>
+              <div class="col-1" *ngFor="let tag of tags">
+                <span class="badge badge-pill badge-primary">{{tag}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="col-md-6 col-md-offset-2 col-sm-12">
+          <div class="comment-wrapper">
+            <!--  listing the comments -->
+            <ul class="media-list" *ngFor=" let t of commentsVault">
+              <li class="media">
+                <div class="media-body" *ngIf="commentsVault">
+                                <span class="text-muted pull-right">
+                                    <small class="text-muted">{{t.commentedon | date}}</small>
+                                </span>
+                  <strong class="text-success">{{t.user.firstname}}{{t.user.lastname}}</strong>
+                  <p>
+                    {{t.commentcontent}}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <div class="container">
+              <div class="panel panel-info">
+
+                <form [formGroup]="saveCommentForm" (ngSubmit)="validCommentForm(saveCommentForm.value)">
+                    <div class="panel-heading">
+                      Comment
+                    </div>
+                  <ng-flash-message></ng-flash-message>
+                      <div class="panel-body">
+
+                        <div class="form-group">
+                          <!--      readinf the cooment content        -->
+                          <textarea  formControlName="commentcontent" class="form-control" [ngClass]="{'is-invalid': submission && cpa.commentcontent.errors}" placeholder="Comment description..." rows="3" ></textarea>
+                          <div *ngIf="submission && cpa.commentcontent.errors" class="invalid-feedback">
+                            <div *ngIf="cpa.commentcontent.hasError('hasspace')">write a comment..</div>
+                            <div *ngIf="cpa.commentcontent.errors.maxlength">maximum-255 characters only.</div>
+                          </div>
+                        </div>
+                        <br>
+                        <!-- saving the comment              -->
+                        <button type="button" class="btn btn-info pull-right" type="submit">post</button>
+                        <div class="clearfix"></div>
+                        <hr>
+                      </div>
+                </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
